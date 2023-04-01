@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Student Id Card Generator</title>
+    <script
+      src="https://kit.fontawesome.com/7de0610cf8.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 120%;
+        --color1: #4047f0;
+      }
+
+      .body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+
+      /* ####################################   css for main Container  ####################################  */
+
+      .main_container {
+        height: 95vh;
+        width: 80vw;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        font-family: sans-serif;
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "card_details card_output";
+        grid-template-rows: 1fr 10fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* ####################################   css for main header  ####################################  */
+      .header {
+        grid-area: header;
+        text-align: center;
+        background-color: var(--color1);
+        color: white;
+        padding: 0.5rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+      /* ####################################   css for card input  ####################################  */
+      .card_details {
+        grid-area: card_details;
+        border-right: 1px solid gray;
+        display: grid;
+        justify-items: center;
+      }
+      .card_output {
+        grid-area: card_output;
+      }
+
+      .cardInput {
+        width: 80%;
+        display: grid;
+        justify-items: center;
+      }
+
+      .cardInput h2 {
+        color: var(--color1);
+        margin: 0.5rem 0 1rem 0;
+      }
+      .input-icons i {
+        position: absolute;
+      }
+
+      .input-icons {
+        margin: 0.5rem 0 1rem 0;
+      }
+
+      .icon {
+        padding: 0.5rem 1rem;
+        text-align: center;
+      }
+      input[type="file"] {
+        font-size: 1rem;
+      }
+      .input-field {
+        width: 70%;
+        padding: 0.5rem;
+        text-align: center;
+        border-radius: 0.8rem;
+        outline: none;
+        border: 0.5px solid gray;
+        font: 1rem;
+        background-color: #d9daf3;
+      }
+      section label {
+        font-weight: bold;
+      }
+      .btn {
+        padding: 0.5rem;
+        background-color: var(--color1);
+        color: white;
+        outline: none;
+        border: 1px solid var(--color1);
+        border-radius: 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .cardimage {
+        width: 7rem;
+        height: 7rem;
+        margin-top: 1rem;
+        display: none;
+      }
+
+      /* ####################################   css for card output  ####################################  */
+      .card_output {
+        display: grid;
+        place-items: center;
+        margin: 1rem;
+      }
+
+      .card_output section {
+        display: grid;
+        place-items: center;
+      }
+      .card_output h2 {
+        margin: 1rem;
+        text-align: center;
+      }
+      .Idcard {
+        height: 15rem;
+        width: 25rem;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+      }
+
+      .Idcard .img {
+        background-image: linear-gradient(to top, #4047f0, #8f94fb);
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        display: grid;
+        place-items: center;
+        border: 1px solid gray;
+      }
+      .Idcard .img img {
+        border-radius: 30%;
+      }
+
+      .cardDetails {
+        display: grid;
+        margin: 3rem 1rem;
+      }
+      .title {
+        color: gray;
+      }
+
+      /* ####################################   css for ID card display none  ####################################  */
+      #cardSection {
+        display: none;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 120%;
+        --color1: #4047f0;
+      }
+
+      .body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+
+      /* ####################################   css for main Container  ####################################  */
+
+      .main_container {
+        height: initial;
+        width: 80vw;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        font-family: sans-serif;
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "card_details card_output";
+        grid-template-rows: 1fr 10fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* ####################################   css for main header  ####################################  */
+      .header {
+        grid-area: header;
+        text-align: center;
+        background-color: #3ab6cf;
+        color: white;
+        padding: 0.5rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+      /* ####################################   css for card input  ####################################  */
+      .card_details {
+        grid-area: card_details;
+        border-right: 1px solid gray;
+        display: grid;
+        justify-items: center;
+      }
+      .card_output {
+        grid-area: card_output;
+      }
+
+      .cardInput {
+        width: 80%;
+        display: grid;
+        justify-items: center;
+      }
+
+      .cardInput h2 {
+        color: var(--color1);
+        margin: 0.5rem 0 1rem 0;
+      }
+      .input-icons i {
+        position: absolute;
+      }
+
+      .input-icons {
+        margin: 0.5rem 0 1rem 0;
+      }
+
+      .icon {
+        padding: 0.5rem 1rem;
+        text-align: center;
+      }
+      input[type="file"] {
+        font-size: 1rem;
+      }
+      .input-field {
+        width: 70%;
+        padding: 0.5rem;
+        text-align: center;
+        border-radius: 0.8rem;
+        outline: none;
+        border: 0.5px solid gray;
+        font: 1rem;
+        background-color: #d9daf3;
+      }
+      section label {
+        font-weight: bold;
+      }
+      .btn {
+        padding: 0.5rem;
+        background-color: #2e0fdd;
+        color: white;
+        outline: none;
+        border: 1px solid var(--color1);
+        border-radius: 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .cardimage {
+        width: 7rem;
+        height: 7rem;
+        margin-top: 1rem;
+        display: none;
+      }
+
+      /* ####################################   css for card output  ####################################  */
+      .card_output {
+        display: grid;
+        place-items: center;
+        margin: 1rem;
+        background-color: #f8f8f9;
+        
+      }
+
+      .card_output section {
+        display: grid;
+        place-items: center;
+      }
+      .card_output h2 {
+        margin: 1rem;
+        text-align: center;
+      }
+      .Idcard {
+        height: 18rem;
+        width: 25rem;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+      }
+
+      .Idcard .img {
+        background-image: linear-gradient(to top, #279f78, #8f94fb);
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        display: grid;
+        place-items: center;
+        border: 1px solid gray;
+      }
+      .Idcard .img img {
+        border-radius: 30%;
+      }
+
+      .cardDetails {
+        display: grid;
+        margin: 3rem 1rem;
+      }
+      .title {
+        color: gray;
+      }
+
+      /* ####################################   css for ID card display none  ####################################  */
+      #cardSection {
+        display: none;
+      }
+
+      /* ####################################   css for Responsive  ####################################  */
+      @media screen and (max-width: 1260px) {
+        html {
+          font-size: 100%;
+        }
+      }
+      @media screen and (max-width: 1050px) {
+        html {
+          font-size: 70%;
+        }
+      }
+      @media screen and (max-width: 750px) {
+        html {
+          font-size: 60%;
+        }
+      }
+      @media screen and (max-width: 650px) {
+        html {
+          font-size: 60%;
+        }
+        .main_container {
+          grid-template-areas:
+            "header "
+            "card_details "
+            "card_output";
+          grid-template-columns: 1fr;
+        }
+        .card_details {
+          border-bottom: 1px solid gray;
+          border-right: none;
+        }
+        .main_container {
+          width: 90vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <!-- ####################################   main main_container  ###################################################### -->
+      <div class="main_container">
+        <header class="header">
+          <h1>ID Card Generator</h1>
+        </header>
+
+        <!-- ####################################   card Input section  #################################### -->
+        <div class="card_details">
+          <section class="cardInput">
+            <div class="heading"></div>
+            <section>
+              <h2>Enter Student Details</h2>
+
+              <label for="name">Enter Name:</label>
+
+              <div class="input-icons">
+                <i class="fas fa-user-graduate icon"> </i>
+                <input type="text" name="name" class="input-field" id="name" />
+              </div>
+
+              <label for="reg">Enter Register No:</label>
+              <div class="input-icons">
+                <i class="fas fa-book-reader icon"> </i>
+                <input type="text" name="reg" class="input-field" id="reg" />
+              </div>
+
+
+              <!-- <label for="reg">Enter Register No:</label>
+
+              <div class="input-icons">
+                <i class="fas fa-book-reader icon"></i>
+                <input
+                  type="text"
+                  name="reg"
+                  id="reg"
+                  class="input-field"
+                />
+              </div> -->
+
+              <label for="branch">Enter Branch:</label>
+
+              <div class="input-icons">
+                <i class="fas fa-graduation-cap icon"> </i>
+                <input type="text" name="branch" class="input-field" id="branch" />
+              </div>
+
+
+              <label for="age">Enter Age:</label>
+
+              <div class="input-icons">
+                <i class="fa fa-heartbeat icon"> </i>
+                <input type="number"
+                 name="age" 
+                 class="input-field" 
+                 id="age" />
+              </div>
+
+              <label for="clgEmail">Enter Email Id:</label>
+
+              <div class="input-icons">
+                <i class="fa fa-envelope icon"></i>
+                <input
+                  type="text"
+                  name="clgEmail"
+                  id="clgEmail"
+                  class="input-field"
+                />
+              </div>
+
+             
+
+              <label for="clgName">Enter College Name:</label>
+
+              <div class="input-icons">
+                <i class="fa-solid fa-building-columns icon"></i>
+                <input
+                  type="text"
+                  name="clgName"
+                  id="clgName"
+                  class="input-field"
+                />
+              </div>
+
+              <label for="clgAddress">Enter Address:</label>
+
+              <div class="input-icons">
+                <i class="fa fa-address-card-o icon"></i>
+                <input
+                  type="text"
+                  name="clgAddress"
+                  id="clgAddress"
+                  class="input-field"
+                />
+              </div>
+
+              <label for="country">Enter Country:</label>
+
+              <div class="input-icons">
+                <i class="fas fa-globe icon"></i>
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  class="input-field"
+                />
+              </div>
+
+
+               <label for="phone">Enter Phone No:</label>
+
+              <div class="input-icons">
+                <i class="fa fa-phone icon"></i>
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  class="input-field"
+                />
+              </div>
+
+              
+              
+              <label for="photo">Enter student's picture:</label>
+
+              <div class="input-icons">
+                <input
+                  type="file"
+                  name="photo"
+                  id="chooseFile"
+                  accept="image/*"
+                />
+                <div>
+                  <img id="imgPreview" class="cardimage" />
+                </div>
+              </div>
+              <button class="btn">Generate Card</button>
+            </section>
+          </section>
+        </div>
+
+        <!-- ####################################   card output section  #################################### -->
+        <div class="card_output">
+          <section id="cardSection">
+            <h2>Generated Id Card</h2>
+            <article class="Idcard">
+              <div class="img">
+                <img id="cardimage" class="cardimage" />
+              </div>
+              <div class="cardDetails">
+                <p>
+                  <span class="title">Name:</span>
+                  <span class="IdName"></span>
+                </p>
+
+                <p>
+                  <span class="title">Register No:</span>
+                  <span class="IdReg"></span>
+                </p>
+
+                <!-- <p>
+                  <span class="title"></span>Register No: </span
+                  ><span class="IdReg"></span>
+                </p> -->
+                <p>
+                  <span class="title">Branch:</span>
+                  <span class="IdBranch"></span>
+                </p>
+                <p>
+                  <span class="title">Age:</span>
+                  <span class="IdAge"></span>
+                </p>
+                <p>
+                  <span class="title">Email:</span>
+                  <span class="IdEmail"></span>
+                </p>
+                <p>
+                  <span class="title">College Name: </span
+                  ><span class="IdClgName"></span>
+                </p>
+                <p>
+                  <span class="title">Address:</span>
+                  <span class="IdAddress"></span>
+                </p>
+                <p>
+                  <span class="title">Country: </span
+                  ><span class="IdCountry"></span>
+                </p>
+                
+                <p>
+                  <span class="title"></span>Phone No: </span
+                  ><span class="IdPhone"></span>
+                </p>
+               
+                
+               
+               
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      const cardSection = document.querySelector("#cardSection");
+
+      const chooseFile = document.getElementById("chooseFile");
+      const imgPreview = document.getElementById("imgPreview");
+      const cardimage = document.getElementById("cardimage");
+
+      chooseFile.addEventListener("change", showPreview);
+
+      // Img showPreview function
+
+      function showPreview(event) {
+        if (event.target.files.length > 0) {
+          var src = URL.createObjectURL(event.target.files[0]);
+
+          imgPreview.src = src;
+          imgPreview.style.display = "block";
+
+          cardimage.src = imgPreview.src;
+          cardimage.style.display = "block";
+        }
+      }
+
+      //ID card Generate Function
+
+      btn.addEventListener("click", generate);
+      function generate() {
+        console.log("clicked");
+        cardSection.style.display = "block";
+
+        const nameInputValue = document.querySelector("#name").value;
+        document.querySelector(".IdName").innerHTML = nameInputValue;
+        console.log(nameInputValue);
+
+        const regInputValue = document.querySelector("#reg").value;   
+        document.querySelector(".IdReg").innerHTML = regInputValue;
+        console.log(regInputValue);
+
+        const branchInputValue = document.querySelector("#branch").value;
+        document.querySelector(".IdBranch").innerHTML = branchInputValue;
+        console.log(branchInputValue);
+
+        const ageInputValue = document.querySelector("#age").value;
+        document.querySelector(".IdAge").innerHTML = ageInputValue;
+        console.log(ageInputValue);
+
+        const emailInputValue = document.querySelector("#clgEmail").value;
+        document.querySelector(".IdEmail").innerHTML =emailInputValue;
+        console.log(emailInputValue);
+
+        const clgNameInputValue = document.querySelector("#clgName").value;   
+        document.querySelector(".IdClgName").innerHTML = clgNameInputValue;
+        console.log(clgNameInputValue);
+
+
+
+        const addrInputValue = document.querySelector("#clgAddress").value;
+        document.querySelector(".IdAddress").innerHTML =addrInputValue;
+        console.log(addrInputValue);
+
+        const countryInputValue = document.querySelector("#country").value;
+        document.querySelector(".IdCountry").innerHTML = countryInputValue;
+        console.log(countryInputValue);
+
+
+        const phoneInputValue = document.querySelector("#phone").value;   
+        document.querySelector(".IdPhone").innerHTML = phoneInputValue;
+        console.log(phoneInputValue);
+
+        
+      }
+    </script>
+  </body>
+</html>
